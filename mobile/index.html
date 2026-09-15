@@ -97,6 +97,64 @@ header{position:fixed;inset:0 0 auto 0;z-index:40;height:64px;padding:env(safe-a
   font:12px Arial,sans-serif;
   color:#777;
 }
+
+.index-intro-mobile{
+  min-height:100svh;
+  padding:96px 18px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid var(--line);
+  background:radial-gradient(ellipse at center,#171310 0%,#080706 72%);
+}
+.index-intro-inner{
+  width:min(92vw,720px);
+  background:rgba(18,16,15,.96);
+  border:1px solid #3a322d;
+  padding:24px 20px 18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.55);
+}
+.index-intro-inner h1{
+  margin:0 0 18px;
+  color:#c9a063;
+  font:400 32px/1.1 Georgia,serif;
+  letter-spacing:.03em;
+}
+.index-intro-scroll{
+  max-height:62svh;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding-right:8px;
+  scrollbar-width:thin;
+}
+.index-intro-scroll p{
+  margin:0 0 16px;
+  color:#c3bbb4;
+  font:16px/1.65 Georgia,serif;
+  text-align:left;
+}
+.index-intro-hint{
+  margin-top:12px;
+  color:#8a827a;
+  font-size:12px;
+  letter-spacing:.06em;
+}
+
+.mobile-usage-note{
+  padding:26px 20px 38px;
+  border-bottom:1px solid var(--line);
+}
+.mobile-usage-note-inner{
+  width:min(92vw,720px);
+  margin:0 auto;
+}
+.mobile-usage-note p{
+  margin:0;
+  color:#aaa;
+  font-size:14px;
+  line-height:1.55;
+}
 </style>
 </head>
 <body>
@@ -105,17 +163,33 @@ header{position:fixed;inset:0 0 auto 0;z-index:40;height:64px;padding:env(safe-a
 <button aria-label="Fermer" class="menuClose" id="menuClose">×</button>
 <h2>Exposition</h2>
 <p class="menu-sub">Accès direct aux Stations</p>
-<a class="station-link" data-close-menu="" href="#station-1">Station 1<span>Suzanne</span></a>
+<a class="station-link" data-close-menu="" href="#introduction">Introduction<span>L'Art du Courage</span></a><a class="station-link" data-close-menu="" href="#station-1">Station 1<span>Suzanne</span></a>
 <a class="station-link" data-close-menu="" href="#station-2">Station 2<span>Joueuses de luth</span></a>
 <a class="station-link" data-close-menu="" href="#station-3">Station 3<span>Profil / Judith</span></a>
 <a class="station-link" data-close-menu="" href="#station-4">Station 4<span>Madeleine / Lucrèce</span></a>
 <a class="station-link" data-close-menu="" href="#station-5">Station 5<span>Esther</span></a>
 </nav>
-<main>
-<section class="expo-intro" id="top">
-<div class="kicker">Exposition mobile</div>
-<h1>Artemisia</h1>
-<p>Faites défiler verticalement pour parcourir l’exposition. Sur chaque œuvre : swipe vers la gauche ou bouton → pour le cartel, Loupe pour observer les détails, appui direct sur le tableau pour le plein écran.</p>
+<main><section class="index-intro-mobile" id="introduction">
+<div class="index-intro-inner">
+<div class="kicker">Artemisia Gentileschi</div>
+<h1>L'Art du Courage</h1>
+<div class="index-intro-scroll">
+<p>Ce site présente le projet d'une exposition itinérante consacrée à Artemisia Gentileschi, conçue pour circuler en Occitanie.</p>
+<p>Rome, 1610. Une jeune fille de dix-sept ans signe un tableau qui n'a rien d'une œuvre de jeunesse : une Suzanne et les vieillards d'une force déjà accomplie. Elle s'appelle Artemisia Gentileschi, fille du peintre Orazio Gentileschi, formée depuis l'enfance dans l'atelier familial.</p>
+<p>L'année suivante, elle est violée par Agostino Tassi, un collègue de son père. Le procès qui suit l'oblige à témoigner publiquement et sous la torture de ce qu'elle a subi.</p>
+<p>Elle part pour Florence. En 1616, elle entre à l'Accademia del Disegno.</p>
+<p>Pour l'érudit Michelangelo Buonarroti le Jeune, elle peint l'Allégorie de l'Inclination et est payée trois fois plus que les peintres florentins chargés du même plafond. La même période la voit se représenter en joueuse de luth, un des nombreux visages qu'elle se prête tout au long de sa carrière.</p>
+<p>Sa réputation franchit vite les frontières de Florence. Rome, Venise, Naples, Londres : les commandes affluent, jusqu'à la cour d'Espagne. À Venise, où elle fréquente les cercles littéraires, on grave son portrait sous une inscription qui ne laisse pas de doute : « un miracle dans la peinture ». C'est là qu'elle peint sa Lucrèce, dans une manière plus vénitienne qui marque un tournant de son style. À Naples, elle dirige son propre atelier, elle emploie d'autres peintres pour répondre à la demande, jusqu'à des commandes pour la cathédrale de Pouzzoles et la cour d'Espagne.</p>
+<p>Le parcours de cette exposition suit ce déploiement. Trois Judith, à Naples, à Florence, à Détroit, montrent une même scène retravaillée sur toute une carrière. Suzanne résiste aux vieillards. Esther affronte Assuérus. Trois Marie-Madeleine se succèdent. Une Vénus, une Naissance de saint Jean-Baptiste, et pour finir un dernier autoportrait, en allégorie de la Peinture elle-même : la dernière image qu'Artemisia laisse d'elle est celle d'une femme qui peint.</p>
+<p>Elle meurt à Naples vers 1656. Son œuvre sombre dans l'oubli pendant deux siècles, avant d'être redécouverte et de devenir, aujourd'hui, l'une des plus célèbres peintures du baroque.</p>
+<p>Douze stations, plongées dans l'obscurité, dont les œuvres principales sont projetées à leur échelle d'origine, sans les contraintes de prêt, de transport ou de conservation d'une toile originale. Ce que vous découvrez ici en reprend la logique : une station après l'autre, l'enchaînement complet des douze œuvres. Le parcours numérique vous permet d'en évaluer le propos et la cohérence, sans remplacer ce que vous vivrez en salle.</p>
+</div>
+<div class="index-intro-hint">Faites défiler le texte ↓</div>
+</div>
+</section><section class="mobile-usage-note">
+<div class="mobile-usage-note-inner">
+<p>Faites défiler verticalement pour parcourir l’exposition. Sur chaque œuvre : swipe vers la gauche ou bouton Cartel pour ouvrir le cartel, Loupe pour observer les détails, appui direct sur le tableau pour le plein écran.</p>
+</div>
 </section>
 <section class="station-intro" id="station-1">
 <div class="kicker">Station 1</div>
