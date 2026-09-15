@@ -1798,6 +1798,56 @@ document.querySelectorAll('.swipe-shell').forEach(shell=>{
    }
  },{passive:false});
 });
+
+/* Swipe de retour dédié au cartel :
+   le panneau cartel capte lui-même le geste vers la droite,
+   même lorsque le contenu du cartel est défilable verticalement. */
+document.querySelectorAll('.swipe-shell').forEach(shell=>{
+  const cartelPanel = shell.querySelector('.cartel-panel');
+  const cartelCard = shell.querySelector('.cartel-card');
+  if(!cartelPanel || !cartelCard) return;
+
+  let sx=0, sy=0, active=false;
+
+  cartelPanel.addEventListener('touchstart', e=>{
+    if(e.touches.length!==1) return;
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+    active = true;
+  }, {passive:true});
+
+  cartelPanel.addEventListener('touchend', e=>{
+    if(!active || !e.changedTouches.length) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    active = false;
+
+    /* Retour seulement pour un vrai geste horizontal vers la droite.
+       Le scroll vertical du texte reste donc intact. */
+    if(dx > 45 && Math.abs(dx) > Math.abs(dy) * 1.05){
+      closeCartel(shell);
+    }
+  }, {passive:true});
+
+  cartelPanel.addEventListener('touchcancel', ()=>{ active=false; });
+
+  /* Fallback pointer pour simulateurs / navigateurs hybrides */
+  let psx=0, psy=0, pactive=false;
+  cartelPanel.addEventListener('pointerdown', e=>{
+    if(e.pointerType==='touch') return;
+    psx=e.clientX; psy=e.clientY; pactive=true;
+  });
+  cartelPanel.addEventListener('pointerup', e=>{
+    if(e.pointerType==='touch' || !pactive) return;
+    const dx=e.clientX-psx, dy=e.clientY-psy;
+    pactive=false;
+    if(dx > 45 && Math.abs(dx) > Math.abs(dy) * 1.05){
+      closeCartel(shell);
+    }
+  });
+  cartelPanel.addEventListener('pointercancel', ()=>{ pactive=false; });
+});
+
 </script>
 </body>
 </html>
